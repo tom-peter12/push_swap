@@ -22,4 +22,10 @@
 # define BLUE "\x1b[34m"
 # define ERROR 64
 
+int		ft_check_invalid_args(char *str);
+int		ft_check_duplicate(char *str);
+t_list	*ft_create_stack_a(char *str);
+void	ft_rotate(t_list *head);
+void	ft_reverse_rotate(t_list *head);
+
 #endif
