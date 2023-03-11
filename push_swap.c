@@ -37,6 +37,12 @@ int	main(int argc, char *argv[])
 		return (ERROR);
 	}
 	stack_a = ft_create_stack_a(comb);
+	ft_rotate(&stack_a);
+	while (stack_a)
+	{
+		ft_printf("||%d||\n", stack_a->content);
+		stack_a = stack_a->next;
+	}
 	// ft_magic(stack_a);
 	return (0);
 }

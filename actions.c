@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-t_list	*pop_front(t_list *head) 
+t_list	*pop_front(t_list **head) 
 {
 	if(head != NULL)
 	{
 		t_list*	temp;
 
-		temp = head;
-		head = head->next; 
+		temp = *head;
+		*head = (*head)->next; 
 		free(temp); 
 	}
-	return (head);
+	return (*head);
 }
 
 void pop_back(t_list *head) 
@@ -53,37 +53,27 @@ void	ft_swap(t_list *top, t_list *below_top)
 	below_top->content = temp;
 }
 
-void	ft_rotate(t_list *head)
+void	ft_rotate(t_list **head)
 {
 	int		content;
 	t_list	*ll_a;
 
-	content = head->content;
+	content = (*head)->content;
 	ll_a = ft_lstnew(content);
-	head = pop_front(head);
-	ft_lstadd_back(&head, ll_a);
-	while (head)
-	{
-		ft_printf("||%d||\n", head->content);
-		head = head->next;
-	}
+	*head = pop_front(head);
+	ft_lstadd_back(head, ll_a);
 }
 
-void	ft_reverse_rotate(t_list *head)
+void	ft_reverse_rotate(t_list **head)
 {
 	int		content;
 	t_list	*ll_a;
 
-	ll_a = ft_lstlast(head);
+	ll_a = ft_lstlast(*head);
 	content = ll_a->content;
 	ll_a = ft_lstnew(content);
-	pop_back(head);
-	ft_lstadd_front(&head, ll_a);
-	while (head)
-	{
-		ft_printf("||%d||\n", head->content);
-		head = head->next;
-	}
+	pop_back(*head);
+	ft_lstadd_front(head, ll_a);
 }
 
 // void	ft_push(t_list *head_a, t_list *head_b)
