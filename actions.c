@@ -62,12 +62,11 @@ void	ft_rotate(t_list *head)
 	ll_a = ft_lstnew(content);
 	head = pop_front(head);
 	ft_lstadd_back(&head, ll_a);
-	
-	// while (head)
-	// {
-	// 	ft_printf("||%d||\n", head->content);
-	// 	head = head->next;
-	// }
+	while (head)
+	{
+		ft_printf("||%d||\n", head->content);
+		head = head->next;
+	}
 }
 
 void	ft_reverse_rotate(t_list *head)
@@ -80,7 +79,7 @@ void	ft_reverse_rotate(t_list *head)
 	ll_a = ft_lstnew(content);
 	pop_back(head);
 	ft_lstadd_front(&head, ll_a);
-	while (head->next)
+	while (head)
 	{
 		ft_printf("||%d||\n", head->content);
 		head = head->next;

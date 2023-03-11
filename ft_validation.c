@@ -44,6 +44,22 @@ static int	ft_isvalid(char c)
 		return (0);
 }
 
+int	ft_sign_after_num(char *str)
+{
+	int		i;
+
+	i = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	while (str[i])
+	{
+		if (str[i] == '-' || str[i] == '+')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	ft_check_invalid_args(char *str)
 {
 	int		i;
@@ -64,7 +80,7 @@ int	ft_check_invalid_args(char *str)
 			holder++;
 		else
 		{
-			if (!ft_atoi(*holder))
+			if (ft_sign_after_num(*holder) || !ft_atoi(*holder))
 				return (1);
 			holder++;
 		}

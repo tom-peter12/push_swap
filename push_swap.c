@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
+
 int	main(int argc, char *argv[])
 {
 	int		i;
@@ -37,6 +37,6 @@ int	main(int argc, char *argv[])
 		return (ERROR);
 	}
 	stack_a = ft_create_stack_a(comb);
-	ft_rotate(stack_a);
+	// ft_magic(stack_a);
 	return (0);
 }

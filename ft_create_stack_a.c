@@ -28,14 +28,8 @@ t_list	*ft_create_stack_a(char *str)
 	{
 		c = ft_atoi(holder[i]);
 		ll_a = ft_lstnew(c);
-		ft_lstadd_front(&queue_a, ll_a);
+		ft_lstadd_back(&queue_a, ll_a);
 		i++;
 	}
-	while (queue_a != NULL)
-	{
-		ft_printf("||%s||\n", ft_itoa(queue_a->content));
-		queue_a = queue_a->next;
-	}
-	ft_printf("||%s||\n", queue_a->next);
 	return (queue_a);
 }
