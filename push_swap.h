@@ -27,5 +27,6 @@ int		ft_check_duplicate(char *str);
 t_list	*ft_create_stack_a(char *str);
 void	ft_rotate(t_list **head);
 void	ft_reverse_rotate(t_list **head);
+void	ft_swap(t_list *top, t_list *below_top);
 
 #endif

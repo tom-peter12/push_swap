@@ -26,7 +26,7 @@ int	ft_check_duplicate(char *str)
 		j = i + 1;
 		while (holder[j])
 		{
-			if (ft_strcmp(holder[i], holder[j]) == 0)
+			if (ft_atoi(holder[i]) == ft_atoi(holder[j]))
 				return (1);
 			j++;
 		}

@@ -37,7 +37,7 @@ int	main(int argc, char *argv[])
 		return (ERROR);
 	}
 	stack_a = ft_create_stack_a(comb);
-	ft_rotate(&stack_a);
+	ft_swap(stack_a, stack_a->next);
 	while (stack_a)
 	{
 		ft_printf("||%d||\n", stack_a->content);
