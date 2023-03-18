@@ -12,48 +12,17 @@
 
 #include "push_swap.h"
 
-t_list	*pop_front(t_list **head) 
-{
-	if(head != NULL)
-	{
-		t_list*	temp;
-
-		temp = *head;
-		*head = (*head)->next; 
-		free(temp); 
-	}
-	return (*head);
-}
-
-void pop_back(t_list *head) 
-{
-	if(head != NULL) 
-	{
-		if(head->next == NULL)
-			head = NULL;
-		else
-		{
-			t_list* temp = head;
-			while(temp->next->next != NULL)
-				temp = temp->next;
-
-			t_list* lastNode = temp->next;
-			temp->next = NULL;
-			free(lastNode); 
-		}
-  	}
-}
-
-void	ft_swap(t_list *top, t_list *below_top)
+void	ft_swap(t_list *top, t_list *below_top, char *str)
 {
 	int	temp;
 
 	temp = top->content;
 	top->content = below_top->content;
 	below_top->content = temp;
+	ft_compare(str);
 }
 
-void	ft_rotate(t_list **head)
+void	ft_rotate(t_list **head, char *str)
 {
 	int		content;
 	t_list	*ll_a;
@@ -62,9 +31,10 @@ void	ft_rotate(t_list **head)
 	ll_a = ft_lstnew(content);
 	*head = pop_front(head);
 	ft_lstadd_back(head, ll_a);
+	ft_compare(str);
 }
 
-void	ft_reverse_rotate(t_list **head)
+void	ft_reverse_rotate(t_list **head, char *str)
 {
 	int		content;
 	t_list	*ll_a;
@@ -74,9 +44,17 @@ void	ft_reverse_rotate(t_list **head)
 	ll_a = ft_lstnew(content);
 	pop_back(*head);
 	ft_lstadd_front(head, ll_a);
+	ft_compare(str);
 }
 
-// void	ft_push(t_list *head_a, t_list *head_b)
-// {
-		
-// }
+void	ft_push(t_list **head_a, t_list **head_b, char *str)
+{
+	int		content;
+	t_list	*ll_a;
+
+	content = (*head_a)->content;
+	ll_a = ft_lstnew(content);
+	*head_a = pop_front(head_a);
+	ft_lstadd_front(head_b, ll_a);
+	ft_compare(str);
+}

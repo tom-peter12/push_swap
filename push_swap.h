@@ -22,11 +22,31 @@
 # define BLUE "\x1b[34m"
 # define ERROR 64
 
+typedef struct s_var
+{
+	int	one;
+	int	two;
+	int	three;
+	int	four;
+	int	five;
+}	t_var;
+
+typedef struct s_stack
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+}	t_stack;
+
 int		ft_check_invalid_args(char *str);
 int		ft_check_duplicate(char *str);
 t_list	*ft_create_stack_a(char *str);
-void	ft_rotate(t_list **head);
-void	ft_reverse_rotate(t_list **head);
-void	ft_swap(t_list *top, t_list *below_top);
+void	ft_rotate(t_list **head, char *str);
+void	ft_reverse_rotate(t_list **head, char *str);
+void	ft_swap(t_list *top, t_list *below_top, char *str);
+void	ft_magic(t_list **head);
+void	ft_push(t_list **head_a, t_list **head_b, char *str);
+t_list	*pop_front(t_list **head);
+void	pop_back(t_list *head);
+void	ft_compare(char *str);
 
 #endif

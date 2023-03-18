@@ -31,5 +31,10 @@ t_list	*ft_create_stack_a(char *str)
 		ft_lstadd_back(&queue_a, ll_a);
 		i++;
 	}
+	while (*holder)
+	{
+		free(*holder);
+		holder++;
+	}
 	return (queue_a);
 }

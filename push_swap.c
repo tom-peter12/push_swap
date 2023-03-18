@@ -18,11 +18,6 @@ int	main(int argc, char *argv[])
 	char	*comb;
 	t_list	*stack_a;
 
-	if (argc < 2)
-	{
-		ft_putstr_fd(RED "Error\n" NORMAL, 2);
-		return (ERROR);
-	}
 	i = 1;
 	comb = ft_strdup("");
 	while (i < argc)
@@ -37,12 +32,7 @@ int	main(int argc, char *argv[])
 		return (ERROR);
 	}
 	stack_a = ft_create_stack_a(comb);
-	ft_swap(stack_a, stack_a->next);
-	while (stack_a)
-	{
-		ft_printf("||%d||\n", stack_a->content);
-		stack_a = stack_a->next;
-	}
-	// ft_magic(stack_a);
+	free(comb);
+	ft_magic(&stack_a);
 	return (0);
 }
