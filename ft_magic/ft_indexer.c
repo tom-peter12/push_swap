@@ -1,40 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_queue_a.c                                :+:      :+:    :+:   */
+/*   ft_indexer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 17:17:50 by tpetros           #+#    #+#             */
-/*   Updated: 2023/03/10 17:17:52 by tpetros          ###   ########.fr       */
+/*   Created: 2023/03/21 16:03:17 by tpetros           #+#    #+#             */
+/*   Updated: 2023/03/21 16:03:18 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-t_list	*ft_create_stack_a(char *str)
+void	ft_indexer(t_list **head)
 {
-	char	**holder;
-	t_list	*queue_a;
-	t_list	*ll_a;
-	int		i;
-	int		c;
+	t_list	tmp;
 
-	i = 0;
-	c = 0;
-	holder = ft_split(str, ' ');
-	queue_a = NULL;
-	while (holder[i])
-	{
-		c = ft_atoi(holder[i]);
-		ll_a = ft_lstnew(c);
-		ft_lstadd_back(&queue_a, ll_a);
-		i++;
-	}
-	while (*holder)
-	{
-		free(*holder);
-		holder++;
-	}
-	return (queue_a);
 }

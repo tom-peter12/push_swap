@@ -10,7 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
+
+int	is_sorted(t_list *head)
+{
+	while (head->next != NULL)
+	{
+		if (head->content > head->next->content)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
 
 void	ft_case_two(t_list **head)
 {
@@ -47,10 +58,14 @@ void	ft_case_three(t_list **head)
 	}
 }
 
-void	ft_magic(t_list **head)
+void	ft_magic(t_list **head, t_list **stack_b_head)
 {
+	(void)stack_b_head;
+	if (is_sorted(*head))
+		return ;
 	if (ft_lstsize((*head)) == 2)
 		ft_case_two(head);
 	else if (ft_lstsize((*head)) == 3)
 		ft_case_three(head);
+	// ft_indexer(*head);
 }

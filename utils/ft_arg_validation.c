@@ -10,7 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
+
+void	ft_freer(char **str)
+{
+	while (*str)
+	{
+		free(*str);
+		str++;
+	}
+}
 
 int	ft_check_duplicate(char *str)
 {
@@ -34,11 +43,7 @@ int	ft_check_duplicate(char *str)
 		}
 		i++;
 	}
-	while (*holder)
-	{
-		free(*holder);
-		holder++;
-	}
+	ft_freer(holder);
 	return (0);
 }
 
@@ -92,10 +97,6 @@ int	ft_check_invalid_args(char *str)
 			holder++;
 		}
 	}
-	while (*holder)
-	{
-		free(*holder);
-		holder++;
-	}
+	ft_freer(holder);
 	return (0);
 }
