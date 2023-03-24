@@ -13,7 +13,7 @@
 NAME = push_swap
 
 SRC_FILES = ft_magic/push_swap.c utils/ft_arg_validation.c utils/actions.c \
-			ft_magic/ft_magic.c utils/actions_utilities.c
+			ft_magic/ft_magic.c utils/actions_utilities.c ft_magic/ft_create_stack_a.c
 
 
 CC = cc
