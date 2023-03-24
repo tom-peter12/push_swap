@@ -60,7 +60,7 @@ t_list	*ft_create_stack_a(char *str)
 		ft_lstadd_back(&queue_a, ll_a);
 		i++;
 	}
-    ft_indexer(queue_a, ft_lstsize(queue_a));
+    ft_indexer(queue_a, ft_lstsize(queue_a) + 1);
 	ft_freer(holder);
 	return (queue_a);
 }

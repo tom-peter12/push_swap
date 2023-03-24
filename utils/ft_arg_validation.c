@@ -12,15 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_freer(char **str)
-{
-	while (*str)
-	{
-		free(*str);
-		str++;
-	}
-}
-
 int	ft_check_duplicate(char *str)
 {
 	char	**holder;
@@ -86,15 +77,16 @@ int	ft_check_invalid_args(char *str)
 			return (1);
 	}
 	holder = ft_split(str, ' ');
-	while (*holder)
+	i = 0;
+	while (holder[i])
 	{
-		if (!ft_strcmp(*holder, "0"))
-			holder++;
+		if (!ft_strcmp(holder[i], "0"))
+			i++;
 		else
 		{
-			if (ft_sign_after_num(*holder) || !ft_atoi(*holder))
+			if (ft_sign_after_num(holder[i]) || !ft_atoi(holder[i]))
 				return (1);
-			holder++;
+			i++;
 		}
 	}
 	ft_freer(holder);

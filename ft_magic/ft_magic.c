@@ -58,6 +58,11 @@ void	ft_case_three(t_list **head)
 	}
 }
 
+// void	ft_case_big(t_list **head_a, t_list **head_b)
+// {
+
+// }
+
 void	ft_magic(t_list **head, t_list **stack_b_head)
 {
 	(void)stack_b_head;
@@ -67,5 +72,6 @@ void	ft_magic(t_list **head, t_list **stack_b_head)
 		ft_case_two(head);
 	else if (ft_lstsize((*head)) == 3)
 		ft_case_three(head);
-	// ft_indexer(*head);
+	// else
+	// 	ft_case_big(head, *stack_b_head);
 }

@@ -20,7 +20,7 @@ int	main(int argc, char *argv[])
 	t_list	*stack_b;
 
 	i = 1;
-	(void)stack_b;
+	stack_b = NULL;
 	comb = ft_strdup("");
 	while (i < argc)
 	{
@@ -36,5 +36,7 @@ int	main(int argc, char *argv[])
 	stack_a = ft_create_stack_a(comb);
 	free(comb);
 	ft_magic(&stack_a, &stack_b);
+	ft_stack_freer(&stack_a);
+	ft_stack_freer(&stack_b);
 	return (0);
 }

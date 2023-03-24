@@ -43,5 +43,6 @@ t_list	*pop_front(t_list **head);
 void	pop_back(t_list *head);
 void	ft_compare(char *str);
 void	ft_freer(char **str);
+void	ft_stack_freer(t_list **stack);
 
 #endif
