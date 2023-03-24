@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	assign_index(t_list *stack_a, int stack_size)
+void	ft_indexer(t_list *stack_a, int stack_size)
 {
 	t_list	*temp;
 	t_list	*highest;
@@ -36,7 +36,7 @@ void	assign_index(t_list *stack_a, int stack_size)
 			else
 				temp = temp->next;
 		}
-		if (highest != NULL)
+		if (highest)
 			highest->index = stack_size;
 	}
 }
@@ -60,12 +60,7 @@ t_list	*ft_create_stack_a(char *str)
 		ft_lstadd_back(&queue_a, ll_a);
 		i++;
 	}
-    assign_index(queue_a, ft_lstsize(queue_a));
-    while (queue_a)
-    {
-        ft_printf("|%d|\n", queue_a->index);
-        queue_a = queue_a->next;
-    }
+    ft_indexer(queue_a, ft_lstsize(queue_a));
 	ft_freer(holder);
 	return (queue_a);
 }
