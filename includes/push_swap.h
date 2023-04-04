@@ -23,7 +23,7 @@
 # define BLUE "\x1b[34m"
 # define ERROR -1
 
-typedef	struct s_stacks
+typedef struct s_stacks
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -31,23 +31,26 @@ typedef	struct s_stacks
 	int		size_b;
 }	t_stacks;
 
+// Arg Validate
 int		ft_check_invalid_args(char *str);
 int		ft_check_duplicate(char *str);
-t_list	*ft_create_stack_a(char *str);
-// void	ft_rotate(t_list **head, char *str);
-// void	ft_reverse_rotate(t_list **head, char *str);
-void	ft_swap(t_stacks *stacks, char c);
+int		ft_sign_after_num(char *str);
+int		ft_check_empty(int argc, char *argv[]);
+int		ft_isvalid(char c);
+
+// 
+// void	ft_create_stack_a(char *str);
 void	ft_magic(t_stacks *stacks);
-// void	ft_push(t_list **head_a, t_list **head_b, char *str);
-// t_list	*pop_front(t_list **head);
-// void	pop_back(t_list *head);
-// void	ft_compare(char *str);
+
+// In utilities
 void	ft_freer(char **str);
 void	ft_stack_freer(t_list **stack);
+int		ft_put_error(void);
+void	ft_print(t_stacks *stacks);
 
-
+// The Operations
+void	ft_swap(t_stacks *stacks, char c);
 void	ft_rev_rotate(t_stacks *stacks, char c);
 void	ft_rotate(t_stacks *stacks, char c);
-
 
 #endif

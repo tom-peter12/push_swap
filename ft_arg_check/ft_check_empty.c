@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_check_empty.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 17:20:27 by tpetros           #+#    #+#             */
-/*   Updated: 2022/12/28 17:20:28 by tpetros          ###   ########.fr       */
+/*   Created: 2023/04/04 16:13:09 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/04 16:13:10 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_check_empty(int argc, char *argv[])
 {
-	t_list	*tmp;
+	int	i;
 
-	tmp = *lst;
-	if (!*lst)
-		*lst = new;
-	if (tmp)
+	i = 1;
+	while (i < argc)
 	{
-		new->next = tmp;
-		new->prev = tmp->prev;
-		tmp->prev->next = new;
-		tmp->prev = new;
+		if (argv[i][0] == '\0')
+			return (1);
+		i++;
 	}
+	return (0);
 }

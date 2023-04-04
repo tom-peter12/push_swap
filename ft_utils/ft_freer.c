@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_freer.c                                   :+:      :+:    :+:   */
+/*   ft_freer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomas <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 15:22:05 by tomas             #+#    #+#             */
-/*   Updated: 2023/03/24 15:22:06 by tomas            ###   ########.fr       */
+/*   Created: 2023/04/04 16:08:23 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/04 16:08:24 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,4 @@ void	ft_freer(char **str)
 		i--;
 	}
 	free(str);
-}
-
-void	ft_stack_freer(t_list **stack)
-{
-	t_list	*temp;
-
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		free(*stack);
-		*stack = temp;
-	}
-	*stack = NULL;
 }

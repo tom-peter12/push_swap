@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_check_duplicate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 17:20:27 by tpetros           #+#    #+#             */
-/*   Updated: 2022/12/28 17:20:28 by tpetros          ###   ########.fr       */
+/*   Created: 2023/04/04 15:55:13 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/04 15:55:14 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_check_duplicate(char *str)
 {
-	t_list	*tmp;
+	char	**holder;
+	int		i;
+	int		j;
 
-	tmp = *lst;
-	if (!*lst)
-		*lst = new;
-	if (tmp)
+	i = 0;
+	j = 0;
+	holder = ft_split(str, ' ');
+	while (holder[i])
 	{
-		new->next = tmp;
-		new->prev = tmp->prev;
-		tmp->prev->next = new;
-		tmp->prev = new;
+		j = i + 1;
+		if (ft_strlen(holder[i]) != 2 && ft_atoi(holder[i]) == -1)
+			return (1);
+		while (holder[j])
+		{
+			if (ft_atoi(holder[i]) == ft_atoi(holder[j]))
+				return (1);
+			j++;
+		}
+		i++;
 	}
+	ft_freer(holder);
+	return (0);
 }

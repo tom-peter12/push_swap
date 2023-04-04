@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_stack_freer.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: tomas <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 17:20:27 by tpetros           #+#    #+#             */
-/*   Updated: 2022/12/28 17:20:28 by tpetros          ###   ########.fr       */
+/*   Created: 2023/03/24 15:22:05 by tomas             #+#    #+#             */
+/*   Updated: 2023/03/24 15:22:06 by tomas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_stack_freer(t_list **stack)
 {
-	t_list	*tmp;
+	t_list	*temp;
 
-	tmp = *lst;
-	if (!*lst)
-		*lst = new;
-	if (tmp)
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
 	{
-		new->next = tmp;
-		new->prev = tmp->prev;
-		tmp->prev->next = new;
-		tmp->prev = new;
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
 	}
+	*stack = NULL;
 }

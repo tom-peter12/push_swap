@@ -12,9 +12,19 @@
 
 NAME = push_swap
 
-SRC_FILES = ft_magic/push_swap.c utils/ft_arg_validation.c utils/actions.c \
-			ft_magic/ft_magic.c utils/actions_utilities.c \
-			ft_magic/ft_create_stack_a.c utils/ft_stack_freer.c
+SRC_FILES = ft_arg_check/ft_arg_util.c \
+			ft_arg_check/ft_check_duplicate.c \
+			ft_arg_check/ft_check_invalid_args.c \
+			ft_arg_check/ft_check_empty.c \
+			ft_operations/ft_rev_rotate.c \
+			ft_operations/ft_rotate.c \
+			ft_operations/ft_swap.c \
+			ft_sort/ft_magic.c \
+			ft_sort/push_swap.c \
+			ft_utils/ft_freer.c \
+			ft_utils/ft_stack_freer.c \
+			ft_utils/ft_put_error.c\
+			ft_utils/ft_print.c
 
 
 CC = cc

@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void    ft_init_stacks(t_stacks *stacks)
+void	ft_init_stacks(t_stacks *stacks)
 {
 	stacks->stack_a = NULL;
 	stacks->stack_b = NULL;
@@ -20,44 +20,47 @@ void    ft_init_stacks(t_stacks *stacks)
 	stacks->size_b = 0;
 }
 
-int	ft_put_error(void)
+void	ft_create_stack_a(char *str, t_stacks *stack)
 {
-	ft_putstr_fd(RED "Error\n" NORMAL, 2);
-	exit(ERROR);
-}
+	char		**holder;
+	t_list		*ll_a;
+	int			i;
+	int			c;
 
-int	ft_check_empty(int argc, char *argv[])
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
+	i = 0;
+	c = 0;
+	holder = ft_split(str, ' ');
+	ft_init_stacks(stack);
+	while (holder[i])
 	{
-		if (argv[i][0] == '\0')
-			ft_put_error();
+		c = ft_atoi(holder[i]);
+		ll_a = ft_lstnew(c);
+		ft_lstadd_back(&stack->stack_a, ll_a);
 		i++;
 	}
-	return (0);
+	stack->size_a = i;
+	ft_freer(holder);
 }
 
 int	main(int argc, char *argv[])
 {
 	int			i;
 	char		*comb;
-	t_stacks	stacks;
+	t_stacks	*stack;
 
 	if (argc > 1)
 	{
+		stack = malloc(sizeof(t_stacks));
 		i = 1;
-		ft_init_stacks(&stacks);
 		comb = ft_strdup("");
 		while (i < argc)
 			comb = ft_strjoin(ft_strjoin(comb, argv[i++]), " ");
-		if (ft_check_duplicate(comb) || ft_check_invalid_args(comb) || 
-			ft_check_empty(argc, argv))
+		if (ft_check_empty(argc, argv) || ft_check_invalid_args(comb)
+			|| ft_check_duplicate(comb))
 			ft_put_error();
-		stacks.stack_a = ft_create_stack_a(comb);
-		ft_magic(&stacks);
+		ft_create_stack_a(comb, stack);
+		ft_print(stack);
+		// ft_magic(&stacks);
 		free(comb);
 		// ft_stack_freer(&stacks.stack_a);
 		// ft_stack_freer(&stacks.stack_b);
