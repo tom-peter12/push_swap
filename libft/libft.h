@@ -22,11 +22,8 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
-	int				cur_pos;
-	int				targ_pos;
-	int				cost_a;
-	int				cost_b;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 int			ft_isalpha(int c);
@@ -70,6 +67,8 @@ t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lstdelone(t_list *lst, void (*del) (int));
 void		ft_lstclear(t_list **lst, void (*del) (int));
+int			ft_lstmin(t_list **lst);
+int			ft_lstmax(t_list **lst);
 int			ft_printf(const char *str, ...);
 int			ft_putchar(char c);
 int			ft_puthex(unsigned int num, const char format);

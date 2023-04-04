@@ -21,10 +21,7 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	list->content = content;
 	list->index = 0;
-	list->cur_pos = -1;
-	list->targ_pos = -1;
-	list->cost_a = -1;
-	list->cost_b = -1;
-	list->next = NULL;
+	list->next = list;
+	list->prev = list;
 	return (list);
 }

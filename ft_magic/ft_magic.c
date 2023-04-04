@@ -23,55 +23,45 @@ int	is_sorted(t_list *head)
 	return (1);
 }
 
-void	ft_case_two(t_list **head)
+void	ft_3_elem(t_stacks *stacks)
 {
-	t_var	var_holder;
+	int		min;
+	int		max;
+	t_list	*temp;
 
-	var_holder.one = (*head)->content;
-	var_holder.two = (*head)->next->content;
-	if (var_holder.one > var_holder.two)
-		ft_swap((*head), ((*head)->next), "sa");
-}
-
-void	ft_case_three(t_list **head)
-{
-	t_var	var;
-
-	var.one = (*head)->content;
-	var.two = (*head)->next->content;
-	var.three = (*head)->next->next->content;
-	if (var.one > var.two && var.two < var.three && var.one < var.three)
-		ft_swap((*head), ((*head)->next), "sa");
-	else if (var.one > var.two && var.one > var.three && var.two < var.three)
-		ft_rotate(head, "ra");
-	else if (var.one < var.two && var.one > var.three && var.two > var.three)
-		ft_reverse_rotate(head, "rra");
-	else if (var.one > var.two && var.one > var.three && var.two > var.three)
+	temp = stacks->stack_a;
+	min = ft_lstmin(&stacks->stack_a);
+	max = ft_lstmax(&stacks->stack_a);
+	while (is_sorted(stacks->stack_a))
 	{
-		ft_swap((*head), ((*head)->next), "sa");
-		ft_reverse_rotate(head, "rra");
-	}
-	else
-	{
-		ft_swap((*head), ((*head)->next), "sa");
-		ft_rotate(head, "ra");
+		if (temp->content == max)
+		{
+			ft_rotate(stacks, 'a');
+			temp = stacks->stack_a;
+		}
+		if (temp->content < temp->next->content && temp->next->content == max)
+		{
+			ft_rev_rotate(stacks, 'a');
+			temp = stacks->stack_a;
+		}
+		if (temp->content > temp->next->content && temp->next->content == min)
+		{
+			ft_swap(stacks, 'a');
+			temp = stacks->stack_a;
+		}
 	}
 }
 
-// void	ft_case_big(t_list **head_a, t_list **head_b)
-// {
-
-// }
-
-void	ft_magic(t_list **head, t_list **stack_b_head)
+void	ft_magic(t_stacks *stacks)
 {
-	(void)stack_b_head;
-	if (is_sorted(*head))
+	if (is_sorted(stacks->stack_a))
 		return ;
-	if (ft_lstsize((*head)) == 2)
-		ft_case_two(head);
-	else if (ft_lstsize((*head)) == 3)
-		ft_case_three(head);
-	// else
-	// 	ft_case_big(head, *stack_b_head);
+	if ((stacks->size_a) == 2)
+		ft_swap(stacks, 'a');
+	else if ((stacks->size_a) == 3)
+		ft_3_elem(stacks);
+	// else if ((stacks->size_a) < 7)
+		// ft_tiny_sort(stacks);
+	// else if ((stacks->size_a >= 7))
+		// ft_big_sort(stacks);
 }

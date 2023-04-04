@@ -12,49 +12,101 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(t_list *top, t_list *below_top, char *str)
-{
-	int	temp;
 
-	temp = top->content;
-	top->content = below_top->content;
-	below_top->content = temp;
-	ft_compare(str);
+// Swap function
+
+void	ft_swap_(t_list **head)
+{
+	int		temp;
+
+	temp = (*head)->content;
+	(*head)->content = (*head)->next->content;
+	(*head)->next->content = temp;
 }
 
-void	ft_rotate(t_list **head, char *str)
+void	ft_swap(t_stacks *stacks, char c)
 {
-	int		content;
-	t_list	*ll_a;
-
-	content = (*head)->content;
-	ll_a = ft_lstnew(content);
-	*head = pop_front(head);
-	ft_lstadd_back(head, ll_a);
-	ft_compare(str);
+	if (c == 'a' && stacks->stack_a && stacks->stack_a->next)
+	{
+		ft_swap_(&stacks->stack_a);
+		ft_putstr(BLUE"sa\n"NORMAL);
+	}
+	if (c == 'b' && stacks->stack_b && stacks->stack_b->next)
+	{
+		ft_swap_(&stacks->stack_b);
+		ft_putstr(BLUE"sb\n"NORMAL);
+	}
+	if (c == 's' && stacks->stack_a && stacks->stack_a->next && stacks->stack_b && stacks->stack_b->next)
+	{
+		ft_swap_(&stacks->stack_a);
+		ft_swap_(&stacks->stack_b);
+		ft_putstr(BLUE"ss\n"NORMAL);
+	}
 }
 
-void	ft_reverse_rotate(t_list **head, char *str)
-{
-	int		content;
-	t_list	*ll_a;
 
-	ll_a = ft_lstlast(*head);
-	content = ll_a->content;
-	ll_a = ft_lstnew(content);
-	pop_back(*head);
-	ft_lstadd_front(head, ll_a);
-	ft_compare(str);
+// rotate function
+void	ft_rotate_(t_list **first)
+{
+	t_list	*second;
+
+	second = (*first)->next;
+	(*first) = second;
 }
 
-void	ft_push(t_list **head_a, t_list **head_b, char *str)
+void	ft_rotate(t_stacks *stacks, char c)
 {
-	int		content;
-	t_list	*ll_a;
+	if (c == 'a' && stacks->stack_a)
+	{
+		ft_rotate_(&stacks->stack_a);
+		ft_putstr(MAGENTA"ra\n"NORMAL);
+	}
+	if (c == 'b' && stacks->stack_b)
+	{
+		ft_rotate_(&stacks->stack_b);
+		ft_putstr(MAGENTA"rb\n"NORMAL);
+	}
+	if (c == 'r' && stacks->stack_a && stacks->stack_b)
+	{
+		ft_rotate_(&stacks->stack_a);
+		ft_rotate_(&stacks->stack_b);
+		ft_putstr(MAGENTA"rr\n"NORMAL);
+	}
+}
 
-	content = (*head_a)->content;
-	ll_a = ft_lstnew(content);
-	*head_a = pop_front(head_a);
-	ft_lstadd_front(head_b, ll_a);
-	ft_compare(str);
+
+// reverse rotate
+void	ft_rev_rotate_(t_list **first, int stack_size)
+{
+	int		j;
+	t_list	*temp;
+
+	j = 0;
+	temp = *first;
+	while (j < stack_size - 1)
+	{
+		temp = temp->next;
+		j++;
+	}
+	(*first) = temp;
+}
+
+void	ft_rev_rotate(t_stacks *stacks, char c)
+{
+	if (c == 'a' && stacks->stack_a)
+	{
+		ft_rev_rotate_(&stacks->stack_a, stacks->size_a);
+		ft_putstr(GREEN"rra\n"NORMAL);
+	}
+	if (c == 'b' && stacks->stack_b)
+	{
+		ft_rev_rotate_(&stacks->stack_b, stacks->size_b);
+		ft_putstr(GREEN"rrb\n"NORMAL);
+	}
+	if (c == 'r' && stacks->stack_a && stacks->stack_b)
+	{
+		ft_rev_rotate_(&stacks->stack_a, stacks->size_a);
+		ft_rev_rotate_(&stacks->stack_b, stacks->size_b);
+		ft_putstr(GREEN"rrr\n"NORMAL);
+	}
 }

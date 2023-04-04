@@ -12,55 +12,44 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_indexer(t_list *stack_a, int stack_size)
+void	ft_print_stack(t_stacks *ab)
 {
-	t_list	*temp;
-	t_list	*highest;
-	int		value;
+	int		i;
+	t_list	*tmp;
 
-	while (--stack_size > 0)
+	i = 0;
+	tmp = ab->stack_a;
+	printf ("a = ");
+	while (i < ab->size_a)
 	{
-		temp = stack_a;
-		value = INT_MIN;
-		highest = NULL;
-		while (temp)
-		{
-			if (temp->content == INT_MIN && temp->index == 0)
-				temp->index = 1;
-			if (temp->content > value && temp->index == 0)
-			{
-				value = temp->content;
-				highest = temp;
-				temp = stack_a;
-			}
-			else
-				temp = temp->next;
-		}
-		if (highest)
-			highest->index = stack_size;
+		printf ("%d ",tmp->content);
+		tmp = tmp->next;
+		i++;
 	}
+	printf("\n");
 }
 
 t_list	*ft_create_stack_a(char *str)
 {
-	char	**holder;
-	t_list	*queue_a;
-	t_list	*ll_a;
-	int		i;
-	int		c;
+	char		**holder;
+	t_stacks	stack;
+	t_list		*ll_a;
+	int			i;
+	int			c;
 
 	i = 0;
 	c = 0;
 	holder = ft_split(str, ' ');
-	queue_a = NULL;
+	stack.stack_a = NULL;
 	while (holder[i])
 	{
 		c = ft_atoi(holder[i]);
 		ll_a = ft_lstnew(c);
-		ft_lstadd_back(&queue_a, ll_a);
+		ft_lstadd_back(&stack.stack_a, ll_a);
 		i++;
 	}
-    ft_indexer(queue_a, ft_lstsize(queue_a) + 1);
+	stack.size_a = i;
 	ft_freer(holder);
-	return (queue_a);
+	return (stack.stack_a);
 }
+
