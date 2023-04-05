@@ -12,17 +12,30 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_print(t_stacks *stacks)
+void	ft_print(t_stacks *stacks, char c)
 {
 	int		i;
 	t_list	*tmp;
 
 	i = 0;
-	tmp = stacks->stack_a;
-	while (i < stacks->size_a)
+	if (c == 'a')
 	{
-		ft_printf("|%d| \n", tmp->content);
-		tmp = tmp->next;
-		i++;
+		tmp = stacks->stack_a;
+		while (i < stacks->size_a)
+		{
+			ft_printf("|%d| \n", tmp->content);
+			tmp = tmp->next;
+			i++;
+		}
+	}
+	else if (c == 'b')
+	{
+		tmp = stacks->stack_b;
+		while (i < stacks->size_b)
+		{
+			ft_printf("|%d| \n", tmp->content);
+			tmp = tmp->next;
+			i++;
+		}
 	}
 }

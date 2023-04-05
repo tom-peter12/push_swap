@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tiny_sort.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/05 14:41:01 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/05 14:41:02 by tpetros          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void	ft_sort5(t_stacks *stacks)
+void	ft_tiny_sort(t_stacks *stacks)
 {
 	int	min;
 	int	max;
 
-	min = ft_find_min(&stacks->stack_a, stacks->size_a);
-	max = ft_find_max(&stacks->stack_a, stacks->size_a);
+	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
+	max = ft_lstmax(&stacks->stack_a, stacks->size_a);
 	while (stacks->size_a != 3)
 	{
 		if (stacks->stack_a->content == max || stacks->stack_a->content == min)
@@ -20,10 +32,11 @@ void	ft_sort5(t_stacks *stacks)
 		ft_swap(stacks, 'b');
 	while (stacks->stack_b)
 	{
-		while ((stacks->stack_b->content > stacks->a->content) || stacks->a->prev->content > stacks->stack_b->content)
+		while ((stacks->stack_b->content > stacks->stack_a->content)
+			|| stacks->stack_a->prev->content > stacks->stack_b->content)
 			ft_rev_rotate(stacks, 'a');
 		ft_push(stacks, 'a');
 	}
-	while (ft_check_sort(&stacks->stack_a))
-		ft_rev_rotate(stacks, 'a');
+	while (!is_sorted(stacks->stack_a, stacks->size_a))
+		ft_rotate(stacks, 'a');
 }

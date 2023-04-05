@@ -61,8 +61,6 @@ int	main(int argc, char *argv[])
 		ft_create_stack_a(comb, stack);
 		ft_magic(stack);
 		free(comb);
-		// ft_stack_freer(&stack->stack_a);
-		// ft_stack_freer(&stack->stack_b);
 	}
 	return (0);
 }

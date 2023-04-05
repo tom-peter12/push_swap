@@ -25,17 +25,17 @@ void	ft_rotate(t_stacks *stacks, char c)
 	if (c == 'a' && stacks->stack_a)
 	{
 		ft_rotate_(&stacks->stack_a);
-		ft_putstr(MAGENTA"ra\n"NORMAL);
+		ft_putstr("ra\n");
 	}
 	if (c == 'b' && stacks->stack_b)
 	{
 		ft_rotate_(&stacks->stack_b);
-		ft_putstr(MAGENTA"rb\n"NORMAL);
+		ft_putstr("rb\n");
 	}
 	if (c == 'r' && stacks->stack_a && stacks->stack_b)
 	{
 		ft_rotate_(&stacks->stack_a);
 		ft_rotate_(&stacks->stack_b);
-		ft_putstr(MAGENTA"rr\n"NORMAL);
+		ft_putstr("rr\n");
 	}
 }

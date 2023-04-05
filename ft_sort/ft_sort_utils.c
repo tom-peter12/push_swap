@@ -12,16 +12,16 @@
 
 #include "../includes/push_swap.h"
 
-int is_sorted(t_list *head, int size)
+int	is_sorted(t_list *head, int size)
 {
-	t_list *current;
+	t_list	*current;
 	int		i;
 
 	current = head;
 	i = 1;
 	if (head == NULL || head->next == NULL)
 		return (1);
-	while (i < size) 
+	while (i < size)
 	{
 		if (current->content > current->next->content)
 			return (0);

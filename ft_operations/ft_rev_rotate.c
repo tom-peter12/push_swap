@@ -32,17 +32,17 @@ void	ft_rev_rotate(t_stacks *stacks, char c)
 	if (c == 'a' && stacks->stack_a)
 	{
 		ft_rev_rotate_(&stacks->stack_a, stacks->size_a);
-		ft_putstr(GREEN"rra\n"NORMAL);
+		ft_putstr("rra\n");
 	}
 	if (c == 'b' && stacks->stack_b)
 	{
 		ft_rev_rotate_(&stacks->stack_b, stacks->size_b);
-		ft_putstr(GREEN"rrb\n"NORMAL);
+		ft_putstr("rrb\n");
 	}
 	if (c == 'r' && stacks->stack_a && stacks->stack_b)
 	{
 		ft_rev_rotate_(&stacks->stack_a, stacks->size_a);
 		ft_rev_rotate_(&stacks->stack_b, stacks->size_b);
-		ft_putstr(GREEN"rrr\n"NORMAL);
+		ft_putstr("rrr\n");
 	}
 }

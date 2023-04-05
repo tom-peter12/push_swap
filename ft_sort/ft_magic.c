@@ -20,8 +20,8 @@ void	ft_magic(t_stacks *stacks)
 		ft_swap(stacks, 'a');
 	else if ((stacks->size_a) == 3)
 		ft_3_elem(stacks);
-	// else if ((stacks->size_a) < 7)
-		// ft_tiny_sort(stacks);
-	// else if ((stacks->size_a >= 7))
-		// ft_big_sort(stacks);
+	else if ((stacks->size_a) < 7)
+		ft_tiny_sort(stacks);
+	else if ((stacks->size_a >= 7))
+		ft_big_sort(stacks);
 }

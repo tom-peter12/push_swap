@@ -26,18 +26,18 @@ void	ft_swap(t_stacks *stacks, char c)
 	if (c == 'a' && stacks->stack_a && stacks->stack_a->next)
 	{
 		ft_swap_(&stacks->stack_a);
-		ft_putstr(BLUE"sa\n"NORMAL);
+		ft_putstr("sa\n");
 	}
 	if (c == 'b' && stacks->stack_b && stacks->stack_b->next)
 	{
 		ft_swap_(&stacks->stack_b);
-		ft_putstr(BLUE"sb\n"NORMAL);
+		ft_putstr("sb\n");
 	}
 	if (c == 's' && stacks->stack_a && stacks->stack_a->next && stacks->stack_b
 		&& stacks->stack_b->next)
 	{
 		ft_swap_(&stacks->stack_a);
 		ft_swap_(&stacks->stack_b);
-		ft_putstr(BLUE"ss\n"NORMAL);
+		ft_putstr("ss\n");
 	}
 }

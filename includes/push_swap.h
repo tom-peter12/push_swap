@@ -41,17 +41,19 @@ int		ft_isvalid(char c);
 // 
 void	ft_magic(t_stacks *stacks);
 void	ft_3_elem(t_stacks *stacks);
-int 	is_sorted(t_list *head, int size);
+int		is_sorted(t_list *head, int size);
+void	ft_tiny_sort(t_stacks *stacks);
 
 // In utilities
 void	ft_freer(char **str);
 void	ft_stack_freer(t_list **stack);
 int		ft_put_error(void);
-void	ft_print(t_stacks *stacks);
+void	ft_print(t_stacks *stacks, char c);
 
 // The Operations
 void	ft_swap(t_stacks *stacks, char c);
 void	ft_rev_rotate(t_stacks *stacks, char c);
 void	ft_rotate(t_stacks *stacks, char c);
+void	ft_push(t_stacks *stacks, char c);
 
 #endif
