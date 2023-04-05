@@ -59,11 +59,10 @@ int	main(int argc, char *argv[])
 			|| ft_check_duplicate(comb))
 			ft_put_error();
 		ft_create_stack_a(comb, stack);
-		ft_print(stack);
-		// ft_magic(&stacks);
+		ft_magic(stack);
 		free(comb);
-		// ft_stack_freer(&stacks.stack_a);
-		// ft_stack_freer(&stacks.stack_b);
+		// ft_stack_freer(&stack->stack_a);
+		// ft_stack_freer(&stack->stack_b);
 	}
 	return (0);
 }

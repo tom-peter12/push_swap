@@ -19,7 +19,9 @@ static void	util(char *str, int i)
 		if (ft_isvalid(str[i]))
 			i++;
 		else
-			exit(1);
+		{
+			ft_put_error();
+		}
 	}
 }
 

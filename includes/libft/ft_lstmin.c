@@ -12,14 +12,12 @@
 
 #include "libft.h"
 
-int	ft_lstmin(t_list **lst)
+int	ft_lstmin(t_list **lst, int size)
 {
-	int		size;
 	int		min;
 	t_list	*temp;
 	int		i;
 
-	size = ft_lstsize(*lst);
 	temp = *lst;
 	i = 0;
 	min = temp->content;

@@ -39,8 +39,9 @@ int		ft_check_empty(int argc, char *argv[]);
 int		ft_isvalid(char c);
 
 // 
-// void	ft_create_stack_a(char *str);
 void	ft_magic(t_stacks *stacks);
+void	ft_3_elem(t_stacks *stacks);
+int 	is_sorted(t_list *head, int size);
 
 // In utilities
 void	ft_freer(char **str);
