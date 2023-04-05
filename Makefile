@@ -35,17 +35,17 @@ CFLAGS = -Wall -Werror -Wextra
 SRC_OBJS = ${SRC_FILES:.c=.o}
 
 ${NAME}: ${SRC_OBJS}
-	cd ./libft/ && make
-	${CC} ${CFLAGS} ${SRC_OBJS} ./libft/libft.a -o ${NAME}
+	cd ./includes/libft/ && make
+	${CC} ${CFLAGS} ${SRC_OBJS} ./includes/libft/libft.a -o ${NAME}
 
 all: ${NAME} 
 
 clean:
-	cd ./libft/ && make clean
+	cd ./includes/libft/ && make clean
 	${RM} ${SRC_OBJS}
 
 fclean: clean
-	cd ./libft/ && make fclean
+	cd ./includes/libft/ && make fclean
 	${RM} ${NAME}
 
 re:	fclean all
