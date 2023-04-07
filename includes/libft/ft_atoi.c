@@ -20,31 +20,38 @@ static int	ft_isspace(char c)
 		return (0);
 }
 
+int	ft_set_sign(const char *str, int i, int *sign)
+{
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			*sign = -1;
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int						sign;
-	int						i;
-	unsigned long			number;
+	int		sign;
+	int		i;
+	long	number;
+	int		c;
 
 	sign = 1;
 	i = 0;
 	number = 0;
+	c = 0;
 	while (ft_isspace(str[i]))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
+	i = i + ft_set_sign(str, i, &sign);
 	while (ft_isdigit(str[i]))
 	{
 		number = number * 10 + str[i] - '0';
+		c++;
 		i++;
 	}
-	if ((number) > INT_MAX && sign == 1)
+	if (sign * number > 2147483647 || sign * number < -2147483648 || c > 10)
 		return (-1);
-	else if ((number) - 1 > INT_MAX && sign == -1)
-		return (0);
 	return ((int )(number * sign));
 }

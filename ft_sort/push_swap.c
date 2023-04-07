@@ -57,13 +57,11 @@ int	main(int argc, char *argv[])
 			comb = ft_strjoin(ft_strjoin(comb, argv[i++]), " ");
 		if (ft_check_empty(argc, argv) || ft_check_invalid_args(comb)
 			|| ft_check_duplicate(comb))
-			ft_put_error();
+			ft_put_error(comb, stack);
 		ft_create_stack_a(comb, stack);
 		ft_magic(stack);
-		// ft_print(stack, 'a');
+		ft_stack_freer(&(stack->stack_a), stack->size_a);
 		free(comb);
-		free(stack->stack_a);
-		free(stack->stack_b);
 		free(stack);
 	}
 	return (0);

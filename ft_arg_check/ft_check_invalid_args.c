@@ -12,17 +12,16 @@
 
 #include "../includes/push_swap.h"
 
-static void	util(char *str, int i)
+static int	util(char *str, int i)
 {
 	while (str[i])
 	{
 		if (ft_isvalid(str[i]))
 			i++;
 		else
-		{
-			ft_put_error();
-		}
+			return (1);
 	}
+	return (0);
 }
 
 int	ft_check_invalid_args(char *str)
@@ -31,7 +30,8 @@ int	ft_check_invalid_args(char *str)
 	char	**holder;
 
 	i = 0;
-	util(str, i);
+	if (util(str, i) == 1)
+		return (1);
 	holder = ft_split(str, ' ');
 	i = 0;
 	while (holder[i])
@@ -41,7 +41,10 @@ int	ft_check_invalid_args(char *str)
 		else
 		{
 			if (ft_sign_after_num(holder[i]) || !ft_atoi(holder[i]))
+			{
+				ft_freer(holder);
 				return (1);
+			}
 			i++;
 		}
 	}

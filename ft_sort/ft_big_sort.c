@@ -12,6 +12,25 @@
 
 #include "../includes/push_swap.h"
 
+void	ft_push_to_b(t_stacks *s, int min, int mid, int max)
+{
+	// while (s->size_a > 2)
+	// {
+	// 	if (s->stack_a->content > mid && s->stack_a != min || s->stack_a != max)
+	// 	{
+	// 		ft_push(s, 'b');
+	// 		ft_rotate(s, 'b');
+	// 	}
+	// 	else if (s->stack_a <= mid && s->stack_a != min || s->stack_a != max)
+	// 		ft_push(s, 'b');
+	// }
+	// ft_rotate(s, 'a');
+	(void) s;
+	(void) min;
+	(void) max;
+	(void) mid;
+}
+
 void	ft_big_sort(t_stacks *stacks, int size)
 {
 	int	min;
@@ -23,7 +42,6 @@ void	ft_big_sort(t_stacks *stacks, int size)
 	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
 	max = ft_lstmax(&stacks->stack_a, stacks->size_a);
 	mid = temp[(size - 1) / 2];
-	ft_putnbr(min);
-	ft_putnbr(mid);
-	ft_putnbr(max);
+	ft_push_to_b(stacks, min, mid, max);
+	free(temp);
 }

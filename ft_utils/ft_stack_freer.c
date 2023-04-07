@@ -12,17 +12,20 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_stack_freer(t_list **stack)
+void	ft_stack_freer(t_list **stack, int size)
 {
 	t_list	*temp;
+	int		i;
 
+	i = 0;
 	if (!stack || !(*stack))
 		return ;
-	while (*stack)
+	while (i < size)
 	{
 		temp = (*stack)->next;
 		free(*stack);
 		*stack = temp;
+		i++;
 	}
 	*stack = NULL;
 }
