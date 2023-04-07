@@ -43,6 +43,7 @@ void	ft_magic(t_stacks *stacks);
 void	ft_3_elem(t_stacks *stacks);
 int		is_sorted(t_list *head, int size);
 void	ft_tiny_sort(t_stacks *stacks);
+void	ft_big_sort(t_stacks *stacks);
 
 // In utilities
 void	ft_freer(char **str);

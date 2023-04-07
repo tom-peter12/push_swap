@@ -60,7 +60,11 @@ int	main(int argc, char *argv[])
 			ft_put_error();
 		ft_create_stack_a(comb, stack);
 		ft_magic(stack);
+		// ft_print(stack, 'a');
 		free(comb);
+		free(stack->stack_a);
+		free(stack->stack_b);
+		free(stack);
 	}
 	return (0);
 }
