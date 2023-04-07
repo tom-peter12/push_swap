@@ -29,7 +29,8 @@ SRC_FILES = ft_arg_check/ft_arg_util.c \
 			ft_utils/ft_freer.c \
 			ft_utils/ft_stack_freer.c \
 			ft_utils/ft_put_error.c \
-			ft_utils/ft_print.c
+			ft_utils/ft_print.c \
+			ft_utils/ft_array_utils.c \
 
 
 CC = cc

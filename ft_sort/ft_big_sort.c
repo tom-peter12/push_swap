@@ -12,12 +12,18 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_big_sort(t_stacks *stacks)
+void	ft_big_sort(t_stacks *stacks, int size)
 {
 	int	min;
 	int	max;
+	int	mid;
+	int	*temp;
 
+	temp = ft_create_array(stacks, size);
 	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
 	max = ft_lstmax(&stacks->stack_a, stacks->size_a);
-	
+	mid = temp[(size - 1) / 2];
+	ft_putnbr(min);
+	ft_putnbr(mid);
+	ft_putnbr(max);
 }

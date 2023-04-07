@@ -43,13 +43,14 @@ void	ft_magic(t_stacks *stacks);
 void	ft_3_elem(t_stacks *stacks);
 int		is_sorted(t_list *head, int size);
 void	ft_tiny_sort(t_stacks *stacks);
-void	ft_big_sort(t_stacks *stacks);
+void	ft_big_sort(t_stacks *stacks, int size);
 
 // In utilities
 void	ft_freer(char **str);
 void	ft_stack_freer(t_list **stack);
 int		ft_put_error(void);
 void	ft_print(t_stacks *stacks, char c);
+int 	*ft_create_array(t_stacks *stacks, int size);
 
 // The Operations
 void	ft_swap(t_stacks *stacks, char c);
