@@ -21,7 +21,7 @@
 typedef struct s_list
 {
 	int				content;
-	int				index;
+	int				rot_score;
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;

@@ -14,21 +14,22 @@
 
 void	ft_push_to_b(t_stacks *s, int min, int mid, int max)
 {
-	// while (s->size_a > 2)
-	// {
-	// 	if (s->stack_a->content > mid && s->stack_a != min || s->stack_a != max)
-	// 	{
-	// 		ft_push(s, 'b');
-	// 		ft_rotate(s, 'b');
-	// 	}
-	// 	else if (s->stack_a <= mid && s->stack_a != min || s->stack_a != max)
-	// 		ft_push(s, 'b');
-	// }
-	// ft_rotate(s, 'a');
-	(void) s;
-	(void) min;
-	(void) max;
-	(void) mid;
+	while (s->size_a > 2)
+	{
+		if (s->stack_a->content <= mid && s->stack_a->content != min &&
+			s->stack_a->content != max)
+		{
+			ft_push(s, 'b');
+			ft_rotate(s, 'b');
+		}
+		else if (s->stack_a->content > mid && s->stack_a->content != min &&
+			s->stack_a->content != max)
+			ft_push(s, 'b');
+		else
+			ft_rotate(s, 'a');
+	}
+	if (s->stack_a->content == min)
+		ft_rotate(s, 'a');
 }
 
 void	ft_big_sort(t_stacks *stacks, int size)
