@@ -17,10 +17,6 @@
 
 # define RED "\x1b[31m"
 # define NORMAL "\x1b[m"
-# define GREEN "\x1b[32m"
-# define YELLOW "\x1b[33m"
-# define MAGENTA "\x1b[35m"
-# define BLUE "\x1b[34m"
 # define ERROR -1
 
 typedef struct s_stacks
@@ -53,12 +49,12 @@ void	ft_rot_and_push_ab(t_stacks *ab, t_list *min_score, int position);
 void	ft_final_rot(t_stacks *stack);
 
 // In utilities
-void			ft_freer(char **str);
-void			ft_stack_freer(t_list **stack, int size);
-int				ft_put_error(char *str, t_stacks *stack);
-void			ft_print(t_stacks *stacks, char c);
-int				*ft_create_array(t_stacks *stacks, int size);
-unsigned int	ft_abs(int num);
+void	ft_freer(char **str);
+void	ft_stack_freer(t_list **stack, int size);
+int		ft_put_error(char *str, t_stacks *stack);
+void	ft_print(t_stacks *stacks, char c);
+int		*ft_create_array(t_stacks *stacks, int size);
+size_t	ft_abs(int num);
 
 // The Operations
 void	ft_swap(t_stacks *stacks, char c);

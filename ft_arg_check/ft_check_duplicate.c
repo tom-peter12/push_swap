@@ -12,6 +12,12 @@
 
 #include "../includes/push_swap.h"
 
+int	ft_after_error(char **str)
+{
+	ft_freer(str);
+	return (1);
+}
+
 int	ft_check_duplicate(char *str)
 {
 	char	**holder;
@@ -24,17 +30,19 @@ int	ft_check_duplicate(char *str)
 	{
 		j = i + 1;
 		if (ft_strlen(holder[i]) != 2 && ft_atoi(holder[i]) == -1)
-		{
-			ft_freer(holder);
-			return (1);
-		}
+			return (ft_after_error(holder));
+		// {
+		// 	ft_freer(holder);
+		// 	return (1);
+		// }
 		while (holder[j])
 		{
 			if (ft_atoi(holder[i]) == ft_atoi(holder[j]))
-			{
-				ft_freer(holder);
-				return (1);
-			}
+				return (ft_after_error(holder));
+			// {
+			// 	ft_freer(holder);
+			// 	return (1);
+			// }
 			j++;
 		}
 		i++;
