@@ -31,18 +31,10 @@ int	ft_check_duplicate(char *str)
 		j = i + 1;
 		if (ft_strlen(holder[i]) != 2 && ft_atoi(holder[i]) == -1)
 			return (ft_after_error(holder));
-		// {
-		// 	ft_freer(holder);
-		// 	return (1);
-		// }
 		while (holder[j])
 		{
 			if (ft_atoi(holder[i]) == ft_atoi(holder[j]))
 				return (ft_after_error(holder));
-			// {
-			// 	ft_freer(holder);
-			// 	return (1);
-			// }
 			j++;
 		}
 		i++;

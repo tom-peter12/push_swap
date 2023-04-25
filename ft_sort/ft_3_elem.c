@@ -21,7 +21,7 @@ void	ft_3_elem(t_stacks *stacks)
 	temp = stacks->stack_a;
 	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
 	max = ft_lstmax(&stacks->stack_a, stacks->size_a);
-	while (is_sorted(&stacks->stack_a))
+	while (!is_sorted(&stacks->stack_a))
 	{
 		if (temp->content == max)
 		{
