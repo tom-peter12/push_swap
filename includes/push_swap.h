@@ -38,19 +38,27 @@ int		ft_sign_after_num(char *str);
 int		ft_check_empty(int argc, char *argv[]);
 int		ft_isvalid(char c);
 
-// 
+// In Sort
 void	ft_magic(t_stacks *stacks);
 void	ft_3_elem(t_stacks *stacks);
-int		is_sorted(t_list *head, int size);
+int		is_sorted(t_list **first);
 void	ft_tiny_sort(t_stacks *stacks);
 void	ft_big_sort(t_stacks *stacks, int size);
+int		ft_calc_score_a(t_stacks *stacks, int num);
+// Complementary for Sort
+t_list	*ft_find_min_score(t_stacks *ab, int *position);
+void	ft_rot_ab(t_stacks *ab, int *score_a, int *score_b);
+void	ft_rev_rot_ab(t_stacks *ab, int	*score_a, int *score_b);
+void	ft_rot_and_push_ab(t_stacks *ab, t_list *min_score, int position);
+void	ft_final_rot(t_stacks *stack);
 
 // In utilities
-void	ft_freer(char **str);
-void	ft_stack_freer(t_list **stack, int size);
-int		ft_put_error(char *str, t_stacks *stack);
-void	ft_print(t_stacks *stacks, char c);
-int		*ft_create_array(t_stacks *stacks, int size);
+void			ft_freer(char **str);
+void			ft_stack_freer(t_list **stack, int size);
+int				ft_put_error(char *str, t_stacks *stack);
+void			ft_print(t_stacks *stacks, char c);
+int				*ft_create_array(t_stacks *stacks, int size);
+unsigned int	ft_abs(int num);
 
 // The Operations
 void	ft_swap(t_stacks *stacks, char c);

@@ -37,6 +37,6 @@ void	ft_tiny_sort(t_stacks *stacks)
 			ft_rev_rotate(stacks, 'a');
 		ft_push(stacks, 'a');
 	}
-	while (!is_sorted(stacks->stack_a, stacks->size_a))
+	while (is_sorted(&stacks->stack_a))
 		ft_rotate(stacks, 'a');
 }
