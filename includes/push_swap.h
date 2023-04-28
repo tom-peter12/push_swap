@@ -27,6 +27,10 @@ typedef struct s_stacks
 	int		size_b;
 }	t_stacks;
 
+// Stack builder
+void	ft_create_stack_a(char *str, t_stacks *stack);
+void	ft_init_stacks(t_stacks *stacks);
+
 // Arg Validate
 int		ft_check_invalid_args(char *str);
 int		ft_check_duplicate(char *str);
