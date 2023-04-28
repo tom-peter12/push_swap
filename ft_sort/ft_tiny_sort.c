@@ -12,31 +12,45 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_tiny_sort(t_stacks *stacks)
+void	ft_sort_four(t_stacks *stacks)
 {
-	int	min;
-	int	max;
-
+	int		min;
+	t_list	*tmp;
+	
 	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
-	max = ft_lstmax(&stacks->stack_a, stacks->size_a);
-	while (stacks->size_a != 3)
+	tmp = stacks->stack_a;
+	while (stacks->size_a > 3)
 	{
-		if (stacks->stack_a->content == max || stacks->stack_a->content == min)
-			ft_rotate(stacks, 'a');
-		else
+		if (tmp->content == min)
 			ft_push(stacks, 'b');
+		else
+			ft_rotate(stacks, 'a');
+		tmp = tmp->next;
 	}
 	ft_3_elem(stacks);
-	ft_rev_rotate(stacks, 'a');
-	if (stacks->stack_b->content < stacks->stack_b->next->content)
-		ft_swap(stacks, 'b');
-	while (stacks->stack_b)
+	ft_push(stacks, 'a');
+}
+
+void	ft_tiny_sort(t_stacks *stacks)
+{
+	int		min;
+	t_list	*tmp;
+
+	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
+	tmp = stacks->stack_a;
+	while (stacks->size_a > 4)
 	{
-		while ((stacks->stack_b->content > stacks->stack_a->content)
-			|| stacks->stack_a->prev->content > stacks->stack_b->content)
+		if (tmp->content == min)
+			ft_push(stacks, 'b');
+		else if (tmp->prev->content == min)
+		{
 			ft_rev_rotate(stacks, 'a');
-		ft_push(stacks, 'a');
+			ft_push(stacks, 'b');
+		}
+		else
+			ft_rotate(stacks, 'a');
+		tmp = tmp->next;
 	}
-	while (is_sorted(&stacks->stack_a))
-		ft_rotate(stacks, 'a');
+	ft_sort_four(stacks);
+	ft_push(stacks, 'a');
 }

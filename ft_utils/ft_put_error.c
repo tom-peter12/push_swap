@@ -16,6 +16,7 @@ int	ft_put_error(char *str, t_stacks *stack)
 {
 	free(str);
 	free(stack);
-	ft_putstr_fd(RED "Error\n" NORMAL, 2);
+	// ft_putstr_fd(RED "Error\n" NORMAL, 2);
+	ft_putstr_fd("Error\n", 2);
 	exit(ERROR);
 }

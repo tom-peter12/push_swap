@@ -41,6 +41,7 @@ int		is_sorted(t_list **first);
 void	ft_tiny_sort(t_stacks *stacks);
 void	ft_big_sort(t_stacks *stacks, int size);
 int		ft_calc_score_a(t_stacks *stacks, int num);
+void	ft_sort_four(t_stacks *stacks);
 // Complementary for Sort
 t_list	*ft_find_min_score(t_stacks *ab, int *position);
 void	ft_rot_ab(t_stacks *ab, int *score_a, int *score_b);

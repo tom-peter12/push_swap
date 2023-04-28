@@ -42,6 +42,20 @@ void	ft_create_stack_a(char *str, t_stacks *stack)
 	ft_freer(holder);
 }
 
+void	ft_magic(t_stacks *stacks)
+{
+	if (stacks->size_a == 1 || is_sorted(&stacks->stack_a))
+		return ;
+	else if ((stacks->size_a) == 2)
+		ft_swap(stacks, 'a');
+	else if ((stacks->size_a) == 3)
+		ft_3_elem(stacks);
+	else if ((stacks->size_a) <= 5)
+		ft_tiny_sort(stacks);
+	else if ((stacks->size_a >= 6))
+		ft_big_sort(stacks, stacks->size_a);
+}
+
 int	main(int argc, char *argv[])
 {
 	int			i;
