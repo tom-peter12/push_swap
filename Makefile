@@ -12,26 +12,26 @@
 
 NAME = push_swap
 
-SRC_FILES = ft_arg_check/ft_arg_util.c \
-			ft_arg_check/ft_check_duplicate.c \
-			ft_arg_check/ft_check_invalid_args.c \
-			ft_arg_check/ft_check_empty.c \
-			ft_operations/ft_rev_rotate.c \
-			ft_operations/ft_rotate.c \
-			ft_operations/ft_swap.c \
-			ft_operations/ft_push.c \
-			ft_sort/push_swap.c \
-			ft_sort/ft_3_elem.c \
-			ft_sort/ft_sort_utils.c \
-			ft_sort/ft_tiny_sort.c \
-			ft_sort/ft_big_sort.c \
-			ft_sort/ft_sort_big_utils.c \
-			ft_utils/ft_freer.c \
-			ft_utils/ft_stack_freer.c \
-			ft_utils/ft_put_error.c \
-			ft_utils/ft_print.c \
-			ft_utils/ft_array_utils.c \
-			ft_utils/ft_abs.c \
+SRC_FILES = src/ft_arg_check/ft_arg_util.c \
+			src/ft_arg_check/ft_check_duplicate.c \
+			src/ft_arg_check/ft_check_invalid_args.c \
+			src/ft_arg_check/ft_check_empty.c \
+			src/ft_operations/ft_rev_rotate.c \
+			src/ft_operations/ft_rotate.c \
+			src/ft_operations/ft_swap.c \
+			src/ft_operations/ft_push.c \
+			src/ft_sort/push_swap.c \
+			src/ft_sort/ft_3_elem.c \
+			src/ft_sort/ft_sort_utils.c \
+			src/ft_sort/ft_tiny_sort.c \
+			src/ft_sort/ft_big_sort.c \
+			src/ft_sort/ft_sort_big_utils.c \
+			src/ft_utils/ft_freer.c \
+			src/ft_utils/ft_stack_freer.c \
+			src/ft_utils/ft_put_error.c \
+			src/ft_utils/ft_print.c \
+			src/ft_utils/ft_array_utils.c \
+			src/ft_utils/ft_abs.c \
 
 
 CC = cc

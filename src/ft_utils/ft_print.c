@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_utils.c                                    :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/05 13:47:01 by tpetros           #+#    #+#             */
-/*   Updated: 2023/04/05 13:47:02 by tpetros          ###   ########.fr       */
+/*   Created: 2023/04/04 16:28:04 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/04 16:28:05 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	is_sorted(t_list **first)
+void	ft_print(t_stacks *stacks, char c)
 {
-	t_list	*temp;
-	t_list	*last;
+	int		i;
+	t_list	*tmp;
 
-	temp = *first;
-	last = (*first)->prev;
-	if (!(*first))
-		return (-1);
-	while (temp != last)
+	i = 0;
+	if (c == 'a')
 	{
-		if (temp->content > temp->next->content)
-			return (0);
-		temp = temp->next;
+		tmp = stacks->stack_a;
+		while (i < stacks->size_a)
+		{
+			ft_printf("|%d| \n", tmp->content);
+			tmp = tmp->next;
+			i++;
+		}
 	}
-	return (1);
+	else if (c == 'b')
+	{
+		tmp = stacks->stack_b;
+		while (i < stacks->size_b)
+		{
+			ft_printf("|%d| \n", tmp->content);
+			tmp = tmp->next;
+			i++;
+		}
+	}
 }

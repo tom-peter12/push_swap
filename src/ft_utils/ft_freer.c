@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_freer.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 16:28:04 by tpetros           #+#    #+#             */
-/*   Updated: 2023/04/04 16:28:05 by tpetros          ###   ########.fr       */
+/*   Created: 2023/04/04 16:08:23 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/04 16:08:24 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	ft_print(t_stacks *stacks, char c)
+void	ft_freer(char **str)
 {
-	int		i;
-	t_list	*tmp;
+	int	i;
 
 	i = 0;
-	if (c == 'a')
+	while (str[i])
+		i++;
+	while (i >= 0)
 	{
-		tmp = stacks->stack_a;
-		while (i < stacks->size_a)
-		{
-			ft_printf("|%d| \n", tmp->content);
-			tmp = tmp->next;
-			i++;
-		}
+		free(str[i]);
+		i--;
 	}
-	else if (c == 'b')
-	{
-		tmp = stacks->stack_b;
-		while (i < stacks->size_b)
-		{
-			ft_printf("|%d| \n", tmp->content);
-			tmp = tmp->next;
-			i++;
-		}
-	}
+	free(str);
 }

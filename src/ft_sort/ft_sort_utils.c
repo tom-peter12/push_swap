@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_empty.c                                   :+:      :+:    :+:   */
+/*   ft_sort_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpetros <tpetros@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 16:13:09 by tpetros           #+#    #+#             */
-/*   Updated: 2023/04/04 16:13:10 by tpetros          ###   ########.fr       */
+/*   Created: 2023/04/05 13:47:01 by tpetros           #+#    #+#             */
+/*   Updated: 2023/04/05 13:47:02 by tpetros          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	ft_check_empty(int argc, char *argv[])
+int	is_sorted(t_list **first)
 {
-	int	i;
+	t_list	*temp;
+	t_list	*last;
 
-	i = 1;
-	while (i < argc)
+	temp = *first;
+	last = (*first)->prev;
+	if (!(*first))
+		return (-1);
+	while (temp != last)
 	{
-		if (argv[i][0] == '\0')
-			return (1);
-		i++;
+		if (temp->content > temp->next->content)
+			return (0);
+		temp = temp->next;
 	}
-	return (0);
+	return (1);
 }
