@@ -66,5 +66,11 @@ void	ft_swap(t_stacks *stacks, char c);
 void	ft_rev_rotate(t_stacks *stacks, char c);
 void	ft_rotate(t_stacks *stacks, char c);
 void	ft_push(t_stacks *stacks, char c);
+// Complementary Operations
+void	ft_swap_(t_list **head);
+void	ft_rev_rotate_(t_list **first);
+void	ft_rotate_(t_list **first);
+void	ft_push_(t_list **to, t_list **from);
+
 
 #endif
