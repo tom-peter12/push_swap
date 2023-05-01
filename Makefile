@@ -53,11 +53,13 @@ ${NAME}: ${SRC_OBJS} ${COMM_OBJS}
 	cd ./includes/libft/ && make
 	${CC} ${CFLAGS} ${SRC_OBJS} ${COMM_OBJS} ./includes/libft/libft.a -o ${NAME}
 
-all: ${NAME} 
-
-bonus: ${COMM_OBJS} ${BONUS_OBJS}
+${NAME_BONUS}: ${COMM_OBJS} ${BONUS_OBJS}
 	cd ./includes/libft/ && make
 	${CC} ${CFLAGS} ${COMM_OBJS} ${BONUS_OBJS} ./includes/libft/libft.a -o ${NAME_BONUS}
+
+all: ${NAME} 
+
+bonus: ${NAME_BONUS}
 
 clean:
 	cd ./includes/libft/ && make clean

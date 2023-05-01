@@ -16,7 +16,7 @@ void	ft_sort_four(t_stacks *stacks)
 {
 	int		min;
 	t_list	*tmp;
-	
+
 	min = ft_lstmin(&stacks->stack_a, stacks->size_a);
 	tmp = stacks->stack_a;
 	while (stacks->size_a > 3)

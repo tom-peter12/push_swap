@@ -72,5 +72,4 @@ void	ft_rev_rotate_(t_list **first);
 void	ft_rotate_(t_list **first);
 void	ft_push_(t_list **to, t_list **from);
 
-
 #endif
