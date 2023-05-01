@@ -13,7 +13,7 @@
 #include "../includes/push_swap.h"
 #include "get_next_line/get_next_line.h"
 
-void	ft_double_actions(char *line, t_stacks *stack)
+void	ft_double_actions(char *line, t_stacks *stack, char *str)
 {
 	if (!ft_strcmp(line, "ss\n") && (stack->stack_a) && (stack->stack_b))
 	{
@@ -33,13 +33,16 @@ void	ft_double_actions(char *line, t_stacks *stack)
 	else
 	{
 		ft_printf("INVALID INSTRUCTION ...\n");
+		free(line);
+		free(str);
 		ft_stack_freer(&(stack->stack_a), stack->size_a);
 		ft_stack_freer(&(stack->stack_b), stack->size_b);
+		free(stack);
 		exit(ERROR);
 	}
 }
 
-void	ft_checker(char *line, t_stacks *stacks)
+void	ft_checker(char *line, t_stacks *stacks, char *str)
 {
 	if (!(ft_strcmp(line, "sa\n")))
 		ft_swap_(&stacks->stack_a);
@@ -58,10 +61,10 @@ void	ft_checker(char *line, t_stacks *stacks)
 	else if (!(ft_strcmp(line, "rrb\n")))
 		ft_rev_rotate_(&stacks->stack_b);
 	else
-		ft_double_actions(line, stacks);
+		ft_double_actions(line, stacks, str);
 }
 
-int ft_arg_check(int ar, char *av[], char *sp)
+int	ft_arg_check(int ar, char *av[], char *sp)
 {
 	if (ft_check_empty(ar, av) || ft_check_invalid_args(sp)
 		|| ft_check_duplicate(sp))
@@ -70,7 +73,7 @@ int ft_arg_check(int ar, char *av[], char *sp)
 		return (0);
 }
 
-int	ft_read_instruction(t_stacks *stack)
+int	ft_read_instruction(t_stacks *stack, char *str)
 {
 	char	*line;
 
@@ -79,10 +82,13 @@ int	ft_read_instruction(t_stacks *stack)
 	{
 		line = get_next_line(0);
 		if ((ft_strcmp(line, "DONE\n") == 0))
+		{
+			free(line);
 			return (1);
+		}
 		else if (!ft_strcmp(line, "\n"))
 			continue ;
-		ft_checker(line, stack);
+		ft_checker(line, stack, str);
 		free(line);
 	}
 	return (0);
@@ -104,11 +110,14 @@ int	main(int argc, char *argv[])
 		if (ft_arg_check(argc, argv, comb))
 			ft_put_error(comb, stack);
 		ft_create_stack_a(comb, stack);
-		if (ft_read_instruction(stack) && is_sorted(&stack->stack_a))
+		if (ft_read_instruction(stack, comb) && is_sorted(&stack->stack_a))
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");
 		free(comb);
+		ft_stack_freer(&(stack->stack_a), stack->size_a);
+		if ((stack->stack_b))
+			ft_stack_freer(&(stack->stack_b), stack->size_b);
 		free(stack);
 	}
 	return (0);

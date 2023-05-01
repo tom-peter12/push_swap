@@ -100,6 +100,7 @@ char	*get_next_line(int fd)
 	if (!extra_chars)
 		return (NULL);
 	next_line = ft_stripped_line(extra_chars);
-	extra_chars = ft_left_chars(extra_chars);
+	free(extra_chars);
+	extra_chars = NULL;
 	return (next_line);
 }
