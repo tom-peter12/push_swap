@@ -49,9 +49,9 @@ void	ft_checker(char *line, t_stacks *stacks, char *str)
 	else if (!(ft_strcmp(line, "sb\n")))
 		ft_swap_(&stacks->stack_b);
 	else if (!(ft_strcmp(line, "pa\n")))
-		ft_push_(&stacks->stack_a, &stacks->stack_b);
+		ft_push(stacks, 'a', 0);
 	else if (!(ft_strcmp(line, "pb\n")))
-		ft_push_(&stacks->stack_b, &stacks->stack_a);
+		ft_push(stacks, 'b', 0);
 	else if (!(ft_strcmp(line, "ra\n")))
 		ft_rotate_(&stacks->stack_a);
 	else if (!(ft_strcmp(line, "rb\n")))
@@ -110,7 +110,8 @@ int	main(int argc, char *argv[])
 		if (ft_arg_check(argc, argv, comb))
 			ft_put_error(comb, stack);
 		ft_create_stack_a(comb, stack);
-		if (ft_read_instruction(stack, comb) && is_sorted(&stack->stack_a))
+		if (ft_read_instruction(stack, comb) && stack->size_a > 0 && 
+			is_sorted(&stack->stack_a))
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");

@@ -89,7 +89,7 @@ void	ft_rot_and_push_ab(t_stacks *ab, t_list *min_score, int position)
 		ft_rot_ab(ab, &score_a, &score_b);
 	if (score_b < 0 || score_a < 0)
 		ft_rev_rot_ab(ab, &score_a, &score_b);
-	ft_push(ab, 'a');
+	ft_push(ab, 'a', 1);
 }
 
 void	ft_final_rot(t_stacks *stack)

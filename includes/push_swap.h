@@ -65,7 +65,7 @@ size_t	ft_abs(int num);
 void	ft_swap(t_stacks *stacks, char c);
 void	ft_rev_rotate(t_stacks *stacks, char c);
 void	ft_rotate(t_stacks *stacks, char c);
-void	ft_push(t_stacks *stacks, char c);
+void	ft_push(t_stacks *stacks, char c, int n);
 // Complementary Operations
 void	ft_swap_(t_list **head);
 void	ft_rev_rotate_(t_list **first);

@@ -19,12 +19,12 @@ void	ft_push_to_b(t_stacks *s, int min, int mid, int max)
 		if (s->stack_a->content > mid && s->stack_a->content != min
 			&& s->stack_a->content != max)
 		{
-			ft_push(s, 'b');
+			ft_push(s, 'b', 1);
 			ft_rotate(s, 'b');
 		}
 		else if (s->stack_a->content <= mid && s->stack_a->content != min
 			&& s->stack_a->content != max)
-			ft_push(s, 'b');
+			ft_push(s, 'b', 1);
 		else
 			ft_rotate(s, 'a');
 	}

@@ -39,20 +39,22 @@ void	ft_push_(t_list **to, t_list **from)
 	*from = tmp_from;
 }
 
-void	ft_push(t_stacks *stacks, char c)
+void	ft_push(t_stacks *stacks, char c, int n)
 {
 	if (c == 'a' && stacks->stack_b)
 	{
 		ft_push_(&stacks->stack_a, &stacks->stack_b);
 		stacks->size_a++;
 		stacks->size_b--;
-		ft_putstr("pa\n");
+		if (n == 1)
+			ft_putstr("pa\n");
 	}
 	if (c == 'b' && stacks->stack_a)
 	{
 		ft_push_(&stacks->stack_b, &stacks->stack_a);
 		stacks->size_a--;
 		stacks->size_b++;
-		ft_putstr("pb\n");
+		if (n == 1)
+			ft_putstr("pb\n");
 	}
 }
