@@ -39,6 +39,7 @@ SRC_FILES = src/ft_sort/main.c
 SRC_BONUS = bonus/ft_checker.c \
 			bonus/get_next_line/get_next_line.c \
 			bonus/get_next_line/get_next_line_utils.c \
+			bonus/ft_bonus_utils.c \
 
 CC = cc
 RM = rm -rf

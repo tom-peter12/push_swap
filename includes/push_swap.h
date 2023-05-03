@@ -50,7 +50,7 @@ void	ft_sort_four(t_stacks *stacks);
 t_list	*ft_find_min_score(t_stacks *ab, int *position);
 void	ft_rot_ab(t_stacks *ab, int *score_a, int *score_b);
 void	ft_rev_rot_ab(t_stacks *ab, int	*score_a, int *score_b);
-void	ft_rot_and_push_ab(t_stacks *ab, t_list *min_score, int position);
+void	ft_rot_and_push_stack(t_stacks *ab, t_list *min_score, int position);
 void	ft_final_rot(t_stacks *stack);
 
 // In utilities
@@ -71,5 +71,9 @@ void	ft_swap_(t_list **head);
 void	ft_rev_rotate_(t_list **first);
 void	ft_rotate_(t_list **first);
 void	ft_push_(t_list **to, t_list **from);
+
+// For bonus
+int		ft_arg_check(int ar, char *av[], char *sp);
+void	ft_freerrr(t_stacks *stack);
 
 #endif

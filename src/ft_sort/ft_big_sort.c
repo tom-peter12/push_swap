@@ -88,7 +88,7 @@ void	ft_lets_sort(t_stacks *stacks)
 		i++;
 	}
 	min_score = ft_find_min_score(stacks, &position);
-	ft_rot_and_push_ab(stacks, min_score, position);
+	ft_rot_and_push_stack(stacks, min_score, position);
 }
 
 void	ft_big_sort(t_stacks *stacks, int size)
