@@ -94,6 +94,13 @@ int	ft_read_instruction(t_stacks *stack, char *str)
 	return (0);
 }
 
+void	ft_freer(t_stacks *stacks)
+{
+	ft_stack_freer(&(stack->stack_a), stack->size_a);
+	if ((stack->stack_b))
+		ft_stack_freer(&(stack->stack_b), stack->size_b);
+}
+
 int	main(int argc, char *argv[])
 {
 	int			i;
@@ -110,15 +117,13 @@ int	main(int argc, char *argv[])
 		if (ft_arg_check(argc, argv, comb))
 			ft_put_error(comb, stack);
 		ft_create_stack_a(comb, stack);
-		if (ft_read_instruction(stack, comb) && stack->size_a > 0 && 
-			is_sorted(&stack->stack_a))
+		if (ft_read_instruction(stack, comb) && stack->size_a > 0
+			&& is_sorted(&stack->stack_a))
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");
 		free(comb);
-		ft_stack_freer(&(stack->stack_a), stack->size_a);
-		if ((stack->stack_b))
-			ft_stack_freer(&(stack->stack_b), stack->size_b);
+		ft_freer(stack);
 		free(stack);
 	}
 	return (0);
