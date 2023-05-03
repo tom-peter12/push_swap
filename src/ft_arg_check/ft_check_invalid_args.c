@@ -24,6 +24,18 @@ static int	util(char *str, int i)
 	return (0);
 }
 
+int	is_zero(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] == '0')
+		i++;
+	if (str[i] == '\0')
+		return(1);
+	return(0);
+}
+
 int	ft_check_invalid_args(char *str)
 {
 	int		i;
@@ -37,6 +49,8 @@ int	ft_check_invalid_args(char *str)
 	while (holder[i])
 	{
 		if (!ft_strcmp(holder[i], "0"))
+			i++;
+		else if (is_zero(holder[i]))
 			i++;
 		else
 		{

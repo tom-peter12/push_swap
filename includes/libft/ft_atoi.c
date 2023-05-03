@@ -30,6 +30,7 @@ int	ft_set_sign(const char *str, int i, int *sign)
 	}
 	return (0);
 }
+#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -44,6 +45,10 @@ int	ft_atoi(const char *str)
 	c = 0;
 	while (ft_isspace(str[i]))
 		i++;
+	while (str[i] == '0')
+		i++;
+	if (str[i] == '\0')
+		return (0);
 	i = i + ft_set_sign(str, i, &sign);
 	while (ft_isdigit(str[i]))
 	{
