@@ -30,7 +30,6 @@ int	ft_set_sign(const char *str, int i, int *sign)
 	}
 	return (0);
 }
-#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
