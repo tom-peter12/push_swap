@@ -44,11 +44,11 @@ int	ft_atoi(const char *str)
 	c = 0;
 	while (ft_isspace(str[i]))
 		i++;
+	i = i + ft_set_sign(str, i, &sign);
 	while (str[i] == '0')
 		i++;
 	if (str[i] == '\0')
 		return (0);
-	i = i + ft_set_sign(str, i, &sign);
 	while (ft_isdigit(str[i]))
 	{
 		number = number * 10 + str[i] - '0';
@@ -56,6 +56,6 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	if (sign * number > 2147483647 || sign * number < -2147483648 || c > 10)
-		return (-1);
+		return (0);
 	return ((int )(number * sign));
 }

@@ -29,8 +29,6 @@ int	ft_check_duplicate(char *str)
 	while (holder[i])
 	{
 		j = i + 1;
-		if (ft_strlen(holder[i]) != 2 && ft_atoi(holder[i]) == -1)
-			return (ft_after_error(holder));
 		while (holder[j])
 		{
 			if (ft_atoi(holder[i]) == ft_atoi(holder[j]))
