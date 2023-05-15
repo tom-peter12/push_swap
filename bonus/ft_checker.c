@@ -32,7 +32,7 @@ void	ft_double_actions(char *line, t_stacks *stack, char *str)
 	}
 	else
 	{
-		ft_printf("INVALID INSTRUCTION ...\n");
+		ft_putstr_fd("INVALID INSTRUCTION ...\n", 2);
 		free(line);
 		free(str);
 		ft_stack_freer(&(stack->stack_a), stack->size_a);
