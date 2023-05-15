@@ -20,22 +20,25 @@ void	ft_rotate_(t_list **first)
 	(*first) = second;
 }
 
-void	ft_rotate(t_stacks *stacks, char c)
+void	ft_rotate(t_stacks *stacks, char c, int n)
 {
 	if (c == 'a' && stacks->stack_a)
 	{
 		ft_rotate_(&stacks->stack_a);
-		ft_putstr("ra\n");
+		if (n == 1)
+			ft_putstr("ra\n");
 	}
 	if (c == 'b' && stacks->stack_b)
 	{
 		ft_rotate_(&stacks->stack_b);
-		ft_putstr("rb\n");
+		if (n == 1)
+			ft_putstr("rb\n");
 	}
 	if (c == 'r' && stacks->stack_a && stacks->stack_b)
 	{
 		ft_rotate_(&stacks->stack_a);
 		ft_rotate_(&stacks->stack_b);
-		ft_putstr("rr\n");
+		if (n == 1)
+			ft_putstr("rr\n");
 	}
 }

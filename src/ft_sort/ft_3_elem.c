@@ -25,17 +25,17 @@ void	ft_3_elem(t_stacks *stacks)
 	{
 		if (temp->content == max)
 		{
-			ft_rotate(stacks, 'a');
+			ft_rotate(stacks, 'a', 1);
 			temp = stacks->stack_a;
 		}
 		if (temp->content < temp->next->content && temp->next->content == max)
 		{
-			ft_rev_rotate(stacks, 'a');
+			ft_rev_rotate(stacks, 'a', 1);
 			temp = stacks->stack_a;
 		}
 		if (temp->content > temp->next->content && temp->next->content == min)
 		{
-			ft_swap(stacks, 'a');
+			ft_swap(stacks, 'a', 1);
 			temp = stacks->stack_a;
 		}
 	}

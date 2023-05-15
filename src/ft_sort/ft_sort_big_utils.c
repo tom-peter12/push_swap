@@ -39,18 +39,18 @@ void	ft_rot_stack(t_stacks *stack, int *score_a, int *score_b)
 {
 	while (*score_b > 0 && *score_a > 0)
 	{
-		ft_rotate(stack, 'r');
+		ft_rotate(stack, 'r', 1);
 		--*score_b;
 		--*score_a;
 	}
 	while (*score_a > 0)
 	{
-		ft_rotate(stack, 'a');
+		ft_rotate(stack, 'a', 1);
 		--*score_a;
 	}
 	while (*score_b > 0)
 	{
-		ft_rotate(stack, 'b');
+		ft_rotate(stack, 'b', 1);
 		--*score_b;
 	}
 }
@@ -59,18 +59,18 @@ void	ft_rev_rot_stack(t_stacks *stack, int	*score_a, int *score_b)
 {
 	while (*score_b < 0 && *score_a < 0)
 	{
-		ft_rev_rotate(stack, 'r');
+		ft_rev_rotate(stack, 'r', 1);
 		++*score_b;
 		++*score_a;
 	}
 	while (*score_a < 0)
 	{
-		ft_rev_rotate(stack, 'a');
+		ft_rev_rotate(stack, 'a', 1);
 		++*score_a;
 	}
 	while (*score_b < 0)
 	{
-		ft_rev_rotate(stack, 'b');
+		ft_rev_rotate(stack, 'b', 1);
 		++*score_b;
 	}
 }
@@ -109,8 +109,8 @@ void	ft_final_rot(t_stacks *stack)
 	while (!is_sorted(&stack->stack_a))
 	{
 		if (i < stack->size_a - i)
-			ft_rotate(stack, 'a');
+			ft_rotate(stack, 'a', 1);
 		else
-			ft_rev_rotate(stack, 'a');
+			ft_rev_rotate(stack, 'a', 1);
 	}
 }

@@ -62,9 +62,9 @@ int		*ft_create_array(t_stacks *stacks, int size);
 size_t	ft_abs(int num);
 
 // The Operations
-void	ft_swap(t_stacks *stacks, char c);
-void	ft_rev_rotate(t_stacks *stacks, char c);
-void	ft_rotate(t_stacks *stacks, char c);
+void	ft_swap(t_stacks *stacks, char c, int n);
+void	ft_rev_rotate(t_stacks *stacks, char c, int n);
+void	ft_rotate(t_stacks *stacks, char c, int n);
 void	ft_push(t_stacks *stacks, char c, int n);
 // Complementary Operations
 void	ft_swap_(t_list **head);

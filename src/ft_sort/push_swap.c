@@ -47,7 +47,7 @@ void	ft_magic(t_stacks *stacks)
 	if (stacks->size_a == 1 || is_sorted(&stacks->stack_a))
 		return ;
 	else if ((stacks->size_a) == 2)
-		ft_swap(stacks, 'a');
+		ft_swap(stacks, 'a', 1);
 	else if ((stacks->size_a) == 3)
 		ft_3_elem(stacks);
 	else if ((stacks->size_a) <= 5)

@@ -15,21 +15,12 @@
 
 void	ft_double_actions(char *line, t_stacks *stack, char *str)
 {
-	if (!ft_strcmp(line, "ss\n") && (stack->stack_a) && (stack->stack_b))
-	{
-		ft_swap_(&stack->stack_a);
-		ft_swap_(&stack->stack_b);
-	}
-	else if (!ft_strcmp(line, "rr\n") && (stack->stack_a) && (stack->stack_b))
-	{
-		ft_rotate_(&stack->stack_a);
-		ft_rotate_(&stack->stack_b);
-	}
-	else if (!ft_strcmp(line, "rrr\n") && (stack->stack_a) && (stack->stack_b))
-	{
-		ft_rev_rotate_(&stack->stack_a);
-		ft_rev_rotate_(&stack->stack_b);
-	}
+	if (!ft_strcmp(line, "ss\n"))
+		ft_swap(stack, 's', 0);
+	else if (!ft_strcmp(line, "rr\n"))
+		ft_rotate(stack, 'r', 0);
+	else if (!ft_strcmp(line, "rrr\n"))
+		ft_rev_rotate(stack, 'r', 0);
 	else
 	{
 		ft_putstr_fd("INVALID INSTRUCTION ...\n", 2);
@@ -45,21 +36,21 @@ void	ft_double_actions(char *line, t_stacks *stack, char *str)
 void	ft_checker(char *line, t_stacks *stacks, char *str)
 {
 	if (!(ft_strcmp(line, "sa\n")))
-		ft_swap_(&stacks->stack_a);
+		ft_swap(stacks, 'a', 0);
 	else if (!(ft_strcmp(line, "sb\n")))
-		ft_swap_(&stacks->stack_b);
+		ft_swap(stacks, 'b', 0);
 	else if (!(ft_strcmp(line, "pa\n")))
 		ft_push(stacks, 'a', 0);
 	else if (!(ft_strcmp(line, "pb\n")))
 		ft_push(stacks, 'b', 0);
 	else if (!(ft_strcmp(line, "ra\n")))
-		ft_rotate_(&stacks->stack_a);
+		ft_rotate(stacks, 'a', 0);
 	else if (!(ft_strcmp(line, "rb\n")))
-		ft_rotate_(&stacks->stack_b);
+		ft_rotate(stacks, 'b', 0);
 	else if (!(ft_strcmp(line, "rra\n")))
-		ft_rev_rotate_(&stacks->stack_a);
+		ft_rev_rotate(stacks, 'a', 0);
 	else if (!(ft_strcmp(line, "rrb\n")))
-		ft_rev_rotate_(&stacks->stack_b);
+		ft_rev_rotate(stacks, 'b', 0);
 	else
 		ft_double_actions(line, stacks, str);
 }

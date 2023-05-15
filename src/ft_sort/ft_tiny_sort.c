@@ -24,7 +24,7 @@ void	ft_sort_four(t_stacks *stacks)
 		if (tmp->content == min)
 			ft_push(stacks, 'b', 1);
 		else
-			ft_rotate(stacks, 'a');
+			ft_rotate(stacks, 'a', 1);
 		tmp = tmp->next;
 	}
 	ft_3_elem(stacks);
@@ -44,11 +44,11 @@ void	ft_tiny_sort(t_stacks *stacks)
 			ft_push(stacks, 'b', 1);
 		else if (tmp->prev->content == min)
 		{
-			ft_rev_rotate(stacks, 'a');
+			ft_rev_rotate(stacks, 'a', 1);
 			ft_push(stacks, 'b', 1);
 		}
 		else
-			ft_rotate(stacks, 'a');
+			ft_rotate(stacks, 'a', 1);
 		tmp = tmp->next;
 	}
 	ft_sort_four(stacks);

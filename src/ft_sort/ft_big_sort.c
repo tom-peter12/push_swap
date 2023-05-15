@@ -20,16 +20,16 @@ void	ft_push_to_b(t_stacks *s, int min, int mid, int max)
 			&& s->stack_a->content != max)
 		{
 			ft_push(s, 'b', 1);
-			ft_rotate(s, 'b');
+			ft_rotate(s, 'b', 1);
 		}
 		else if (s->stack_a->content <= mid && s->stack_a->content != min
 			&& s->stack_a->content != max)
 			ft_push(s, 'b', 1);
 		else
-			ft_rotate(s, 'a');
+			ft_rotate(s, 'a', 1);
 	}
 	if (s->stack_a->content == min)
-		ft_rotate(s, 'a');
+		ft_rotate(s, 'a', 1);
 }
 
 int	ft_calc_score_a(t_stacks *stacks, int num)
